@@ -3,17 +3,17 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, "shop/index.html")
+    return render(request, "index.html")
 
 
 def product(request):
-    return render(request, "shop/product.html")
+    return render(request, "product.html")
 
 
 def store(request):
-    return render(request, "shop/store.html")
+    return render(request, "store.html")
 
 
 def checkout(request):
-    return render(request, "shop/checkout.html")
+    return render(request, "checkout.html")
 
