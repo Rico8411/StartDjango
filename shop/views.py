@@ -14,5 +14,7 @@ def store(request):
     return render(request, "store.html")
 
 
-def hekout(request):
-    return render(request, "hekout.html")
+def checkout(request):
+    return render(request, "checkout.html")
+def index(request):
+    return render(request, 'shop/index.html')
