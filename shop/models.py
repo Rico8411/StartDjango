@@ -15,7 +15,7 @@ class Product(models.Model):
 
 class Cart(models.Model):
     quantity = models.PositiveIntegerField()
-    product = models.ForeignKey(Product, on_delete=models.CASCADE
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
 class Order(models.Model):
@@ -36,7 +36,7 @@ class OrderProduct(models.Model):
 class PaymentLog(models.Model):
     amount = models.DecimalField(decimal_places=2, max_digits=10)
     created_at = models.DateTimeField(auto_now_add=True)
-    order_id = models.ForeignKey()
+    order_id = models.PositiveIntegerField()
     user_id = models.PositiveIntegerField()
     status = models.CharField(max_length=100)
     error_code = models.CharField(max_length=100)
