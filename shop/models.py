@@ -3,16 +3,23 @@ from django.contrib.auth.models import User
 class Category(models.Model):
     title = models.CharField(max_length=100)
     
+    def __str__(self):
+        return self.title
+    
+
 class Product(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     price = models.DecimalField(decimal_places=2, max_digits=10)
-    image = models.CharField()
+    image = models.ImageField( )
     quantity = models.PositiveIntegerField()
     status = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank= True)
 
+    def __str__(self):
+        return self.title
+    
 class Cart(models.Model):
     quantity = models.PositiveIntegerField()
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
