@@ -24,7 +24,7 @@ class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
-    # sbad kharid
+    
 
 class Order(models.Model):
     total_price = models.DecimalField(decimal_places=2, max_digits=10)
@@ -49,8 +49,7 @@ class PaymentLog(models.Model):
     status = models.CharField(max_length=100)
     error_code = models.CharField(max_length=100)
 
-class Meta:
-    unique_together = ('user', 'product')
+
 
     
 # Create your models here.
